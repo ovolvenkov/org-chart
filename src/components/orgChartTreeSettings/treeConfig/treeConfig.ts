@@ -57,7 +57,7 @@ const TreeConfig = (nodes: CompanyMember[] | undefined) => ({
     field_job_title: 'jobPosition',
     img_avatar: 'image',
   },
-  lazyLoading: false,
+  lazyLoading: true,
   padding: 80,
   scaleMin: 0.1
 });
