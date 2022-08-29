@@ -10,7 +10,7 @@ const TreeConfig = (nodes: CompanyMember[] | undefined) => ({
     "name",
     "jobPosition",
     "aimchatAccount",
-    "skypeAccount", "" +
+    "skypeAccount",
     "email",
     "phoneNumber",
     "id",
@@ -41,10 +41,6 @@ const TreeConfig = (nodes: CompanyMember[] | undefined) => ({
   },
   layout: OrgChart.tree,
   enableKeyNavigation: true,
-  collapse: {
-    level: 3,
-    allChildren: true,
-  },
   toolbar: {
     zoom: true,
     fit: true,
