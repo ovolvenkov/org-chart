@@ -41,6 +41,10 @@ const TreeConfig = (nodes: CompanyMember[] | undefined) => ({
   },
   layout: OrgChart.tree,
   enableKeyNavigation: true,
+  collapse: {
+    level: 3,
+    allChildren: true,
+  },
   toolbar: {
     zoom: true,
     fit: true,
