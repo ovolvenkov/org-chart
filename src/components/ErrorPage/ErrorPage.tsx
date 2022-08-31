@@ -1,4 +1,4 @@
-import {Style_ErrorPage} from './ErrorPageStyled';
+import {Style_ErrorPage} from './errorPageStyled';
 import {useNavigate} from "react-router-dom";
 import image from '../../assets/images/artboard.png';
 import {FC} from "react";

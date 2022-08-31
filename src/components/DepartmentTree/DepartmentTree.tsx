@@ -1,6 +1,6 @@
 import React, {FC, useEffect, useRef} from 'react';
 import createTree from '../orgChartTreeSettings/createTree';
-import {Style_DepartmentTree} from './DepartmentTreeStyled';
+import {Style_DepartmentTree} from './departmentTreeStyled';
 import NavigationTopBar from "../NavigationBar/NavigationBar";
 import {TreeProps} from "../../types/types";
 

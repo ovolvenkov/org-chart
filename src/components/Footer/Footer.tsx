@@ -3,7 +3,7 @@ import instagramIcon from '../../assets/images/instagram.svg';
 import twitterIcon from '../../assets/images/icons-twitter.svg';
 import linkedinIcon from '../../assets/images/icons-linked-in.svg';
 import behanceIcon from '../../assets/images/icons-behance.svg';
-import {Style_Footer} from './FooterStyled';
+import {Style_Footer} from './footerStyled';
 import {FC} from "react";
 
 const Footer:FC = () => {

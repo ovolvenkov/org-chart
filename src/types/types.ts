@@ -47,7 +47,7 @@ export type BreadcrumbsProps = {
 }
 
 export type NavigationBarProps = {
-  chartTreeInstance: OrgChart | null,
+  chartTreeInstance: OrgChart | null | any, // need to fix
   setNodeData: (arg: object | null) => void,
   nodeData: NodeData | null,
   isTouchedTree?: boolean,

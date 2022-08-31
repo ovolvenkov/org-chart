@@ -52,8 +52,24 @@ export const Style_App = styled.div`
   }
 
   //the hovered search result
-  .boc-light .boc-search [data-search-item-id]:hover, .boc-light .boc-search [data-selected=yes] {
+  & .boc-light .boc-search [data-search-item-id]:hover, .boc-light .boc-search [data-selected=yes] {
     background-color: #ff6f43;
+  }
+  
+  //buttons detail popup
+  & .link-wrapper {
+    padding-left: 9px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  && .boc-img-button {
+    width: 40px;
+    height: 40px;
+    
+    & svg {
+      top: 10px;
+    }
   }
 
   @media screen and (max-width: 768px) {
@@ -67,5 +83,4 @@ export const Style_App = styled.div`
       width: auto;
     }
   }
-
 `;

@@ -1,22 +1,42 @@
 import OrgChart from "@balkangraph/orgchart.js";
 import {CompanyMember} from "../../../types/types";
+import {chatIcons, emailIcon, phoneIcon, skypeIcon} from "../../../utils/icons";
 
 const TreeConfig = (nodes: CompanyMember[] | undefined) => ({
   template: 'customTemplate',
+  nodes,
   showXScroll: true,
   showYScroll: true,
   mouseScrool: OrgChart.action.scroll,
-  searchFields: [
-    "name",
-    "jobPosition",
-    "aimchatAccount",
-    "skypeAccount",
-    "email",
-    "phoneNumber",
-    "id",
-    "structureName"
-  ],
-  nodes,
+  layout: OrgChart.mixed,
+  enableKeyNavigation: true,
+  lazyLoading: true,
+  padding: 80,
+  scaleMin: 0.1,
+  collapse: {
+    level: 3,
+    allChildren: true,
+  },
+  nodeBinding: {
+    field_collectiveLevelName: 'collectiveLevelName',
+    field_structureLevelName: 'structureLevelName',
+    field_name: 'name',
+    field_job_title: 'jobPosition',
+    img_avatar: 'image',
+  },
+  toolbar: {
+    zoom: true,
+    fit: true,
+    expandAll: true,
+  },
+  searchFields: ["name", "jobPosition", "email", "phoneNumber", "structureName"],
+  searchFieldsWeight: {
+    "name": 50, //percent
+    "jobPosition": 10,
+    "structureName": 10, //percent
+    "email": 20,
+    "phoneNumber": 10,
+  },
   editForm: {
     readOnly: true,
     photoBinding: 'image',
@@ -30,36 +50,39 @@ const TreeConfig = (nodes: CompanyMember[] | undefined) => ({
       { type: 'textbox', label: 'Aimchat', binding: 'aimchatAccount'},
       { type: 'textbox', label: 'Skype', binding: 'skypeAccount'},
       { type: 'textbox', label: 'Department', binding: 'structureLevelName'},
-      { type: 'textbox', label: 'Image', binding: 'image'},
+      { type: 'textbox', label: 'Image', binding: 'image'}
     ],
     buttons: {
+      email: {
+        icon: emailIcon,
+        text: 'Email'
+      },
+      chat: {
+        icon: chatIcons,
+        text: 'Aimchat'
+      },
+      skype: {
+        icon: skypeIcon,
+        text: 'Skype'
+      },
+      phone: {
+        icon: phoneIcon,
+        text: 'Phone'
+      },
       edit: null,
       share: null,
       pdf: null,
       remove: null
     }
   },
-  layout: OrgChart.tree,
-  enableKeyNavigation: true,
-  collapse: {
-    level: 3,
-    allChildren: true,
-  },
-  toolbar: {
-    zoom: true,
-    fit: true,
-    expandAll: true,
-  },
-  nodeBinding: {
-    field_collectiveLevelName: 'collectiveLevelName',
-    field_structureLevelName: 'structureLevelName',
-    field_name: 'name',
-    field_job_title: 'jobPosition',
-    img_avatar: 'image',
-  },
-  lazyLoading: true,
-  padding: 80,
-  scaleMin: 0.1
+  tags: {
+    "subLevels0": {
+      subLevels: 0
+    },
+    "subLevels1": {
+      subLevels: 1
+    }
+  }
 });
 
 export default TreeConfig;

@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {useLocation, useNavigate} from "react-router-dom";
-import {Style_NavigationBar} from './NavigationBarStyled';
+import {Style_NavigationBar} from './navigationBarStyled';
 import Breadcrumbs from "./Breadcrumbs/Breadcrums";
 import {NavigationBarProps} from "../../types/types";
 
@@ -46,14 +46,14 @@ function NavigationTopBar(props: NavigationBarProps) {
   }
 
   useEffect(()=>{
-    const treeElement = document.querySelector('#tree');
-    if ( treeElement ) {
-      const setTouched = () => setIsTouchedTree(true);
-      treeElement.addEventListener('mouseup', setTouched);
+      const initialXScroll = chartTreeInstance?.xScrollUI?.pos;
+      const initialYScroll = chartTreeInstance?.yScrollUI?.pos;
 
-      return () => treeElement.removeEventListener('mouseup', setTouched);
-    }
-  }, [])
+      chartTreeInstance?.on('redraw', ()=> {
+        const isTouchedScroll = initialXScroll !== chartTreeInstance?.xScrollUI?.pos || initialYScroll !== chartTreeInstance?.yScrollUI?.pos;
+        if (isTouchedScroll) setIsTouchedTree(true);
+      });
+  }, [chartTreeInstance])
 
   return (
           <Style_NavigationBar>

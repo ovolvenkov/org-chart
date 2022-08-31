@@ -1,5 +1,5 @@
 import OrgChart from '@balkangraph/orgchart.js';
-import {CreateTreeProps} from "../../types/types";
+import {CompanyMember, CreateTreeProps} from "../../types/types";
 import treeConfig from "./treeConfig/treeConfig";
 import createCustomTemplate from "./customTemplate/customTemplate";
 
@@ -27,6 +27,49 @@ const createTree = ({nodes, ref}: CreateTreeProps) => {
       return false;
     }
   });
+
+  // details info buttons
+  orgChart.editUI.on('button-click', function (sender, args) {
+    if (args.name === 'email') {
+      const data:CompanyMember = orgChart.get(args.nodeId);
+      if (data.email) window.location.href = `mailto:${data.email}`;
+    }
+    else if (args.name === 'chat') {
+      const data:CompanyMember = orgChart.get(args.nodeId);
+      data.aimchatAccount && window.open(`https://chat.aimprosoft.com/index.html#/chat/${data.aimchatAccount}`)
+    }
+    else if (args.name === 'skype') {
+      const data:CompanyMember = orgChart.get(args.nodeId);
+      data.skypeAccount && window.open(`skype:${data.skypeAccount}?chat`)
+    }
+    else if (args.name === 'phone') {
+      const data:CompanyMember = orgChart.get(args.nodeId);
+      data.phoneNumber && window.open(`tel:${data.phoneNumber}`)
+    }
+  });
+
+  // orgChart?.on('searchclick', function (sender, nodeId) {
+  //     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  //     // @ts-ignore
+  //   sender.center(nodeId, {
+  //     parentState: OrgChart.COLLAPSE_PARENT_NEIGHBORS,
+  //     childrenState: OrgChart.COLLAPSE_SUB_CHILDRENS
+  //   });
+  //   return false;
+  // });
+  //
+  // orgChart?.on('expcollclick', function (sender, collapse, id) {
+  //   if (!collapse) {
+  //     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  //     // @ts-ignore
+  //     sender.center(id, {
+  //       parentState: OrgChart.COLLAPSE_PARENT_NEIGHBORS,
+  //       childrenState: OrgChart.COLLAPSE_SUB_CHILDRENS,
+  //       rippleId: id
+  //     });
+  //     return false;
+  //   }
+  // });
 
   return orgChart;
 };

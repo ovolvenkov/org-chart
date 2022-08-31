@@ -10,7 +10,9 @@ const createCustomTemplate = () => {
   OrgChart.templates.customTemplate.field_structureLevelName =
     '<text data-width="260" style="font-size: 14px;" fill="#000" x="10" y="25">{val}</text>';
   OrgChart.templates.customTemplate.field_name =
-    '<text data-width="80" style="font-size: 16px; font-weight: bold;" fill="#000" x="80" y="58" data-text-overflow="multiline">{val}</text>';
+    '<text class="name-field"  data-width="80" style="font-size: 16px; font-weight: bold;" fill="#000" x="80" y="58" data-text-overflow="multiline">' +
+      '{val}' +
+    '</text>';
   OrgChart.templates.customTemplate.field_job_title =
     '<text data-width="135" style="font-size: 12px;" fill="#606060" x="80" y="101" data-text-overflow="multiline">{val}</text>';
   OrgChart.templates.customTemplate.img_avatar =
@@ -29,6 +31,7 @@ const createCustomTemplate = () => {
     '</circle><circle cx="14" cy="0" r="2" fill="#AEAEAE"></circle>' +
     '</g>';
 
+  //detail form base color
   OrgChart.templates.customTemplate.editFormHeaderColor = '#ff6f43';
 };
 

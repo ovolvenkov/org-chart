@@ -1,7 +1,7 @@
 import React, {FC, useEffect, useRef} from 'react';
 import createTree from '../orgChartTreeSettings/createTree';
 import {useNavigate} from 'react-router-dom';
-import {Style_MainTree} from './MainTreeStyled';
+import {Style_MainTree} from './mainTreeStyled';
 import NavigationTopBar from "../NavigationBar/NavigationBar";
 import {TreeProps} from "../../types/types";
 

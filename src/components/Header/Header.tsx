@@ -1,5 +1,5 @@
 import logo from '../../assets/images/logo-aimprosoft-black@3x.png';
-import {Style_Header, Style_ContentWrapper} from './HeaderStyled';
+import {Style_Header, Style_ContentWrapper} from './headerStyled';
 import {FC} from "react";
 
 const Header:FC = () => {
