@@ -8,8 +8,8 @@ export const Style_ContentWrapper = styled.div`{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 17px;
+  padding-bottom: 17px;
   margin: 0 auto;
   
   & .header-content-wrapper {

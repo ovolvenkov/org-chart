@@ -1,6 +1,5 @@
 import React, {FC, useEffect, useRef} from 'react';
 import createTree from '../orgChartTreeSettings/createTree';
-import {useNavigate} from 'react-router-dom';
 import {Style_MainTree} from './mainTreeStyled';
 import NavigationTopBar from "../NavigationBar/NavigationBar";
 import {TreeProps} from "../../types/types";
@@ -8,7 +7,6 @@ import {TreeProps} from "../../types/types";
 const MainTree:FC<TreeProps> = (props) => {
   const { nodes, setChartTreeInstance, nodeData, setNodeData, chartTreeInstance } = props;
   const ref = useRef<HTMLDivElement>(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const chartTreeInstance = createTree({nodes, ref});
@@ -26,7 +24,6 @@ const MainTree:FC<TreeProps> = (props) => {
         const currenSourceData = chartTreeInstance.get(nodeData.id);
         const parentSourceData = chartTreeInstance.get(currenNodeData?.parent?.id || '');
         setNodeData({ currenNodeData, currenSourceData, parentSourceData });
-        navigate('/department');
       }
     });
   }, []);

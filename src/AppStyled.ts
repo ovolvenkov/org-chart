@@ -71,6 +71,15 @@ export const Style_App = styled.div`
       top: 10px;
     }
   }
+  
+  //toolbar styles
+  && .boc-toolbar-container {
+    top: 60px;
+    bottom: initial !important;
+    display: flex;
+    justify-content: space-between;
+    width: 110px;
+  }
 
   @media screen and (max-width: 768px) {
     && .boc-search {

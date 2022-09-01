@@ -15,7 +15,8 @@ export interface CompanyMember {
   "id"?:  string,
   "pid"?:  string,
   "stpid"?:  string,
-  "aimchatAccount"?:string
+  "aimchatAccount"?:string,
+  tags?: string[]
 }
 
 export interface UserState {
@@ -46,8 +47,17 @@ export type BreadcrumbsProps = {
   nodeData: NodeData | null,
 }
 
+interface ExtendedOrgChart extends OrgChart {
+  xScrollUI?: {
+    pos?: string
+  };
+  yScrollUI?: {
+    pos?: string
+  };
+}
+
 export type NavigationBarProps = {
-  chartTreeInstance: OrgChart | null | any, // need to fix
+  chartTreeInstance: ExtendedOrgChart | null,
   setNodeData: (arg: object | null) => void,
   nodeData: NodeData | null,
   isTouchedTree?: boolean,

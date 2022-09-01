@@ -2,12 +2,12 @@ import styled from 'styled-components';
 
 export const Style_NavigationBar = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
   position: absolute;
   font-size: 18px;
   font-weight: 600;
   z-index: 1;
-  top: 105px;
+  top: 90px;
   right: 420px;
   width: calc(100% - 500px);
   
@@ -24,8 +24,13 @@ export const Style_NavigationBar = styled.div`
   }
 
   & .back-start-btn{
-    margin-right: 10px;
-    text-decoration: underline;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #ff6f43;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   & button {

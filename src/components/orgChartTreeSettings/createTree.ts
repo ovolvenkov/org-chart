@@ -48,28 +48,36 @@ const createTree = ({nodes, ref}: CreateTreeProps) => {
     }
   });
 
-  // orgChart?.on('searchclick', function (sender, nodeId) {
-  //     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  //     // @ts-ignore
-  //   sender.center(nodeId, {
-  //     parentState: OrgChart.COLLAPSE_PARENT_NEIGHBORS,
-  //     childrenState: OrgChart.COLLAPSE_SUB_CHILDRENS
-  //   });
-  //   return false;
-  // });
-  //
-  // orgChart?.on('expcollclick', function (sender, collapse, id) {
-  //   if (!collapse) {
-  //     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  //     // @ts-ignore
-  //     sender.center(id, {
-  //       parentState: OrgChart.COLLAPSE_PARENT_NEIGHBORS,
-  //       childrenState: OrgChart.COLLAPSE_SUB_CHILDRENS,
-  //       rippleId: id
-  //     });
-  //     return false;
-  //   }
-  // });
+  orgChart?.on('searchclick', function (sender, nodeId) {
+    const nodeData = sender.getNode(nodeId);
+    const level = nodeData?.level || '';
+
+    if (level > 1 && level < 3) {
+      sender.center(nodeId, {
+        parentState: OrgChart?.COLLAPSE_PARENT_NEIGHBORS,
+        childrenState: OrgChart?.COLLAPSE_SUB_CHILDRENS,
+        rippleId: nodeId,
+        vertical: true,
+        horizontal: true
+      });
+      return false;
+    }
+  });
+
+  orgChart?.on('expcollclick', function (sender, collapse, id) {
+    const nodeData = sender.getNode(id);
+    const level = nodeData.level || '';
+    if (!collapse && level > 1 && level < 3) {
+      sender.center(id, {
+        parentState: OrgChart.COLLAPSE_PARENT_NEIGHBORS,
+        childrenState: OrgChart.COLLAPSE_SUB_CHILDRENS,
+        rippleId: id,
+        vertical: false,
+        horizontal: true
+      });
+      return false;
+    }
+  });
 
   return orgChart;
 };

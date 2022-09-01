@@ -7,8 +7,8 @@ export const Style_Footer = styled.footer`
   & .footer-content-wrapper {
     display: flex;
     justify-content: space-between;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 14px;
+    padding-bottom: 14px;
   }
 
   & .rights-text {

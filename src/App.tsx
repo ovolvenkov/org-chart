@@ -3,9 +3,7 @@ import {Style_App} from './AppStyled';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import MainTree from './components/MainTree/MainTree';
-import mockDepartmentData from './utils/mockDepartmentData';
 import {Route, Routes, useNavigate} from 'react-router-dom';
-import DepartmentTree from './components/DepartmentTree/DepartmentTree'
 import ErrorPage from "./components/ErrorPage/ErrorPage";
 import OrgChart from "@balkangraph/orgchart.js";
 import {NodeData} from "./types/types";
@@ -29,21 +27,25 @@ function App() {
     navigate( isError ? '/error' : '/');
   }, [error]);
 
+  //temporary actions, acked backend added this field
+  let count = 0;
+  const nodesWithSubTags = users.data.map((item) => {
+    if (item.pid === '1') {
+      count++
+      if(count % 2 === 0) return  { ...item, "tags": ["subLevels1"] }
+    }
+    return item;
+  });
+
   return (
     <Style_App>
       <Header />
         <Routes>
-          <Route path="/" element={!isLoading ? <MainTree nodes={users?.data}
+          <Route path="/" element={!isLoading ? <MainTree nodes={nodesWithSubTags}
                                                           setChartTreeInstance={setChartTreeInstance}
                                                           setNodeData={setNodeData}
                                                           nodeData={nodeData}
                                                           chartTreeInstance={chartTreeInstance}/> : <Loader/>} />
-          <Route path="/department" element={!isLoading ? <DepartmentTree nodes={mockDepartmentData}
-                                                                          setChartTreeInstance={setChartTreeInstance}
-                                                                          setNodeData={setNodeData}
-                                                                          nodeData={nodeData}
-                                                                          chartTreeInstance={chartTreeInstance}
-                                                                          isLoading={isLoading}/> : <Loader/>} />
           <Route path="/error" element={<ErrorPage />} />
         </Routes>
         <Footer />
