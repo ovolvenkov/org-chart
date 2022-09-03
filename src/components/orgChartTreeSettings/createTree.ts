@@ -1,5 +1,5 @@
 import OrgChart from '@balkangraph/orgchart.js';
-import {CompanyMember, CreateTreeProps} from "../../types/types";
+import {CompanyMember, CreateTreeProps} from '../../types/types';
 import treeConfig from "./treeConfig/treeConfig";
 import createCustomTemplate from "./customTemplate/customTemplate";
 
@@ -60,7 +60,6 @@ const createTree = ({nodes, ref}: CreateTreeProps) => {
         vertical: true,
         horizontal: true
       });
-      return false;
     }
   });
 
@@ -75,9 +74,21 @@ const createTree = ({nodes, ref}: CreateTreeProps) => {
         vertical: false,
         horizontal: true
       });
-      return false;
     }
   });
+
+  //add tooltips
+  orgChart?.on('init', () => {
+    const expandBtn = document.querySelector('div[data-tlbr="expand"]');
+    expandBtn?.setAttribute('title',  'Expand All');
+    const fitBtn = document.querySelector('div[data-tlbr="fit"]');
+    fitBtn?.setAttribute('title',  'Fit');
+    const minusBtn = document.querySelector('div[data-tlbr="minus"]');
+    minusBtn?.setAttribute('title',  'Zoom Out');
+    const plusBtn = document.querySelector('div[data-tlbr="plus"]');
+    plusBtn?.setAttribute('title',  'Zoom In');
+  });
+
 
   return orgChart;
 };

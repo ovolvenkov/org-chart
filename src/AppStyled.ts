@@ -19,7 +19,9 @@ export const Style_App = styled.div`
 
   //search styles
   & .boc-search {
-    top: 0 !important;
+    top: -5px !important;
+    z-index: 2;
+    max-width: 320px;
   }
 
   & .boc-light .boc-search .boc-input > input {
@@ -74,11 +76,13 @@ export const Style_App = styled.div`
   
   //toolbar styles
   && .boc-toolbar-container {
-    top: 60px;
+    top: 12px;
+    right: 415px !important;
     bottom: initial !important;
     display: flex;
     justify-content: space-between;
-    width: 110px;
+    width: 160px;
+    z-index: 2;
   }
 
   @media screen and (max-width: 768px) {

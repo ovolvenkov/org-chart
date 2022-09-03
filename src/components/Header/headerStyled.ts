@@ -11,6 +11,7 @@ export const Style_ContentWrapper = styled.div`{
   padding-top: 17px;
   padding-bottom: 17px;
   margin: 0 auto;
+  max-height: 35px;
   
   & .header-content-wrapper {
     display: flex;
@@ -20,6 +21,11 @@ export const Style_ContentWrapper = styled.div`{
     padding-bottom: 20px;
     margin: 0 auto;
   }
+  
+  & .logo-link {
+    max-height: 35px;
+  }
+}
   
   & .logo {
     max-width: 176px;

@@ -11,7 +11,7 @@ export const Style_MainTree = styled.div`
 
   & g[data-n-id="85"] {
     & text {
-      transform: translate(-162px);
+      transform: translate(-130px);
     }
   }
 `;

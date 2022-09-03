@@ -1,6 +1,18 @@
 import OrgChart from "@balkangraph/orgchart.js";
 import {RefObject} from "react";
 
+export interface ExtendedOrgChart extends OrgChart {
+  xScrollUI?: {
+    pos?: string
+  };
+  yScrollUI?: {
+    pos?: string
+  };
+  roots?: {
+    id?: string | number
+  }
+}
+
 export interface CompanyMember {
   name?: string,
   image?: string,
@@ -35,25 +47,16 @@ export type NodeData = {
 
 export type TreeProps = {
   nodes?: CompanyMember[] | undefined,
-  setChartTreeInstance: (arg: OrgChart | null)=>void,
+  setChartTreeInstance: (arg: ExtendedOrgChart | null)=>void,
   nodeData: NodeData | null,
   setNodeData: (arg: NodeData | null)=>void,
-  chartTreeInstance: OrgChart | null,
+  chartTreeInstance: ExtendedOrgChart | null,
   isLoading?: boolean
 }
 
 export type BreadcrumbsProps = {
   setNodeData: (arg: object | null) => void,
   nodeData: NodeData | null,
-}
-
-interface ExtendedOrgChart extends OrgChart {
-  xScrollUI?: {
-    pos?: string
-  };
-  yScrollUI?: {
-    pos?: string
-  };
 }
 
 export type NavigationBarProps = {

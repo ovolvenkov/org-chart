@@ -12,9 +12,6 @@ const MainTree:FC<TreeProps> = (props) => {
     const chartTreeInstance = createTree({nodes, ref});
     chartTreeInstance?.on('init', () => {
       setChartTreeInstance(chartTreeInstance);
-      nodeData?.currenNodeData?.childrenIds && nodeData?.currenNodeData?.id &&
-        chartTreeInstance.expand(nodeData?.currenNodeData?.id, nodeData?.currenNodeData?.childrenIds);
-      nodeData?.currenNodeData?.id && chartTreeInstance.center(nodeData?.currenNodeData?.id);
     });
 
     chartTreeInstance?.onExpandCollpaseButtonClick((nodeData) => {

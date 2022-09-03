@@ -6,7 +6,7 @@ const Header:FC = () => {
   return (
     <Style_Header className="container">
       <Style_ContentWrapper>
-        <a href="https://www.aimprosoft.com" target="_blank">
+        <a className="logo-link" href="https://www.aimprosoft.com" target="_blank">
           <img src={logo} alt="logo" className="logo" />
         </a>
         <a className="about-us-link" href="https://www.aimprosoft.com/company/" target="_blank">

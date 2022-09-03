@@ -2,18 +2,25 @@ import styled from 'styled-components';
 
 export const Style_NavigationBar = styled.div`
   display: flex;
-  justify-content: end;
+  justify-content: flex-start;
   position: absolute;
   font-size: 18px;
   font-weight: 600;
   z-index: 1;
-  top: 90px;
-  right: 420px;
-  width: calc(100% - 500px);
+  top: 70px;
+  width: calc(100%);
+  background-color: #fff;
+  height: 60px;
   
   @media (min-width: 2080px) {
     max-width: 1580px;
     left: 80px;
+  }
+
+  .background-navigation-menu {
+    width: 100vw;
+    height: 50px;
+    z-index: 100;
   }
 
 
@@ -21,6 +28,8 @@ export const Style_NavigationBar = styled.div`
     display: flex;
     font-size: 18px;
     font-weight: 600;
+    margin: 0;
+    padding-top: 10px;
   }
 
   & .back-start-btn{
@@ -50,12 +59,6 @@ export const Style_NavigationBar = styled.div`
 
   & .btn {
     cursor: pointer;
-  }
-  
-  @media screen and (max-width: 768px) {
-    top: 150px;
-    right: 80px;
-    width: calc(100% - 160px);
   }
 `;
 

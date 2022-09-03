@@ -13,6 +13,7 @@ const TreeConfig = (nodes: CompanyMember[] | undefined) => ({
   lazyLoading: true,
   padding: 80,
   scaleMin: 0.1,
+  scaleInitial: 1,
   collapse: {
     level: 2,
     allChildren: true,
@@ -27,6 +28,7 @@ const TreeConfig = (nodes: CompanyMember[] | undefined) => ({
   toolbar: {
     zoom: true,
     expandAll: true,
+    fit: true,
   },
   searchFields: ["name", "jobPosition", "email", "phoneNumber", "structureName"],
   searchFieldsWeight: {
