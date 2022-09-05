@@ -77,7 +77,7 @@ const createTree = ({nodes, ref}: CreateTreeProps) => {
     }
   });
 
-  //add tooltips
+  //add tooltips for toolbar buttons
   orgChart?.on('init', () => {
     const expandBtn = document.querySelector('div[data-tlbr="expand"]');
     expandBtn?.setAttribute('title',  'Expand All');
@@ -87,6 +87,48 @@ const createTree = ({nodes, ref}: CreateTreeProps) => {
     minusBtn?.setAttribute('title',  'Zoom Out');
     const plusBtn = document.querySelector('div[data-tlbr="plus"]');
     plusBtn?.setAttribute('title',  'Zoom In');
+  });
+
+  //add tooltips for expandCollapse buttons
+  orgChart.on('redraw', function (sender) {
+    const nodeElements = document.querySelectorAll('[data-ctrl-ec-id]');
+    for (let i = 0; i < nodeElements.length; i++) {
+      const nodeElement = nodeElements[i];
+
+      nodeElement.addEventListener('mouseover', function (e) {
+        const circleElement = e?.target as HTMLInputElement;
+        const idNode = circleElement?.parentElement?.dataset.ctrlEcId || '';
+        const nodeData = sender?.getNode(idNode);
+        const level = nodeData?.level;
+
+        if (level === 0) {
+          circleElement.innerHTML = '<title>Show all departments</title>'
+        }
+        else if (level === 1) {
+          circleElement.innerHTML = '<title>Show all teams</title>'
+        }
+        else if (level === 2) {
+          circleElement.innerHTML = '<title>Show all team members</title>'
+        }
+      });
+
+      nodeElement.addEventListener('mouseleave', function (e) {
+        const circleElement = e.target as HTMLInputElement;
+        const idNode = circleElement?.parentElement?.dataset.ctrlEcId || '';
+        const nodeData = sender?.getNode(idNode);
+        const level = nodeData?.level;
+
+        if (level === 0) {
+          circleElement.innerHTML = '';
+        }
+        else if (level === 1) {
+          circleElement.innerHTML = '';
+        }
+        else if (level === 2) {
+          circleElement.innerHTML = '';
+        }
+      });
+    }
   });
 
 
