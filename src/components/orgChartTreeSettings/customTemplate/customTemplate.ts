@@ -1,23 +1,24 @@
 import OrgChart from "@balkangraph/orgchart.js";
+import {collapseIcon, expandIcon, fitIcon, minusIcon, plusIcon} from '../../../utils/icons';
 
 const createCustomTemplate = () => {
   OrgChart.templates.customTemplate = Object.assign({}, OrgChart.templates.olivia);
-  OrgChart.templates.customTemplate.size = [200, 96];
+  OrgChart.templates.customTemplate.size = [264, 114];
 
-//to override card field styles
+//to override node card field styles
   OrgChart.templates.customTemplate.field_collectiveLevelName =
-    '<text style="font-size: 16px; font-weight: bold;" fill="#000" x="230" y="35" text-anchor="middle">{val}</text>';
+    '<text class="collective-level-name" x="294" y="35">{val}</text>';
   OrgChart.templates.customTemplate.field_structureLevelName =
-    '<text data-width="190" style="font-size: 12px;" fill="#000" x="10" y="20">{val}</text>';
+    '<text class="structure-name" data-width="250" style="font-size: 12px; font-weight: bold;" fill="#fff" x="12" y="20">{val}</text>';
   OrgChart.templates.customTemplate.field_name =
-    '<text class="name-field" data-width="130" style="font-size: 14px; font-weight: bold;" fill="#000" x="65" y="50" >' +
+    '<text class="name-field" data-width="200" style="font-size: 16px; font-weight: bold;" fill="#000" x="60" y="56" >' +
       '{val}' +
-    '</text>';
+    '</text><rect class="top-background-rect"></rect>';
   OrgChart.templates.customTemplate.field_job_title =
-    '<text data-width="135" style="font-size: 10px;" fill="#606060" x="65" y="74" data-text-overflow="multiline">{val}</text>';
+    '<text data-width="135" style="font-size: 12px;" fill="#606060" x="64" y="76" data-text-overflow="multiline">{val}</text>';
   OrgChart.templates.customTemplate.img_avatar =
-    '<clipPath id="{randId}"><circle cx="35" cy="53" r="25"></circle></clipPath>' +
-    '<image preserveAspectRatio="xMidYMid slice" clip-path="url(#{randId})" xlink:href="{val}" x="10" y="28" width="50" height="50"></image>';
+    '<clipPath id="{randId}"><circle cx="32" cy="60" r="20"></circle></clipPath>' +
+    '<image preserveAspectRatio="xMidYMid slice" clip-path="url(#{randId})" xlink:href="{val}" x="12" y="40" width="40" height="40"></image>';
 
   OrgChart.templates.customTemplate.defs =
     '<linearGradient id="{randId}" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:#fff;stop-opacity:1" />' +
@@ -33,6 +34,13 @@ const createCustomTemplate = () => {
 
   //detail form base color
   OrgChart.templates.customTemplate.editFormHeaderColor = '#ff6f43';
+
+  //to overrides toolbar icons
+  OrgChart.toolbarUI.expandAllIcon = expandIcon;
+  OrgChart.toolbarUI.fitIcon = fitIcon;
+  OrgChart.toolbarUI.zoomInIcon = plusIcon;
+  OrgChart.toolbarUI.zoomOutIcon = minusIcon;
+  OrgChart.toolbarUI.collapseIcon = collapseIcon;
 };
 
 export default createCustomTemplate;

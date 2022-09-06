@@ -30,3 +30,24 @@ export const emailIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" hei
   <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 
   2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
 </svg>`
+
+export const fitIcon = `<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M2 12H0V16C0 17.1 0.9 18 2 18H6V16H2V12ZM2 2H6V0H2C0.9 0 0 0.9 0 2V6H2V2ZM16 0H12V2H16V6H18V2C18 0.9 17.1 0 16 0ZM16 16H12V18H16C17.1 18 18 17.1 
+  18 16V12H16V16ZM9 6C7.34 6 6 7.34 6 9C6 10.66 7.34 12 9 12C10.66 12 12 10.66 12 9C12 7.34 10.66 6 9 6Z" fill="black"/>
+</svg>`
+
+export const collapseIcon =`<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M20 1.41L14.71 6.7L18 10H10V2L13.29 5.29L18.59 0L20 1.41ZM1.41 20L6.7 14.71L10 18V10H2L5.29 13.29L0 18.59L1.41 20Z" fill="#171717"/>
+</svg>`
+
+export const expandIcon =`<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M18 8V0H10L13.29 3.29L3.29 13.29L0 10V18H8L4.71 14.71L14.71 4.71L18 8Z" fill="#171717"/>
+</svg>`;
+
+export const plusIcon =`<svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8 0.010498L8 6.0105L14 6.0105V8.0105L8 8.0105L8 14.0105H6L6 8.0105L0 8.0105L0 6.0105L6 6.0105L6 0.010498H8Z" fill="#171717"/>
+</svg>`;
+
+export const minusIcon =`<svg width="14" height="3" viewBox="0 0 14 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M14 2.00854H0L0 0.00854492L14 0.00854492V2.00854Z" fill="#171717"/>
+</svg>`;

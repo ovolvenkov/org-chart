@@ -3,45 +3,37 @@ import styled from 'styled-components';
 export const Style_App = styled.div`
   position: relative;
   font-size: var(--global-fontSize-13);
-
-  //styles for focused node
-  rect:focus{
-    stroke: #ff6f43;
-    stroke-width: 2px;
-    outline: none;
-  }
   
-   && [data-n-id] rect:hover {
-     stroke: #ff6f43;
-     stroke-width: 2px;
-     transition: all 0.3s;
-   }
+  #tree > svg:first-child {
+    background-color: #F5F5F5;
+  }
 
   //search styles
   & .boc-search {
-    top: -5px !important;
+    top: 11px !important;
     z-index: 2;
     max-width: 320px;
+
+  }
+
+  & .boc-input input {
+    max-height: 41px;
+    border-radius: 0;
   }
 
   & .boc-light .boc-search .boc-input > input {
     border: none;
-    border-radius: 0;
-    border-bottom: 1px solid #000;
-    font-size: 18px;
-    padding-left: 0;
+    background-color: #fff;
+    transition-duration: 1s;
   }
 
   & .boc-light .boc-search .boc-input > input:focus {
     border: none;
-    border-radius: 0;
-    border-bottom: 1px solid #4a4a4a;
-    padding-left: 0;
+    background-color: #fff;
   }
 
   & .boc-search .boc-input > label {
-    color: #4a4a4a;
-    padding-left: 0;
+    top: 8px;
     font-size: 18px;
     font-weight: 600;
   }
@@ -49,29 +41,12 @@ export const Style_App = styled.div`
   & .boc-search .boc-input > .focused {
     color: #4a4a4a;
     font-size: 14px;
-    font-weight: normal;
-    background-color: transparent;
+    top: -2px;
   }
 
   //the hovered search result
   & .boc-light .boc-search [data-search-item-id]:hover, .boc-light .boc-search [data-selected=yes] {
     background-color: #ff6f43;
-  }
-  
-  //buttons detail popup
-  & .link-wrapper {
-    padding-left: 9px;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  && .boc-img-button {
-    width: 40px;
-    height: 40px;
-    
-    & svg {
-      top: 10px;
-    }
   }
   
   //toolbar styles
@@ -81,8 +56,17 @@ export const Style_App = styled.div`
     bottom: initial !important;
     display: flex;
     justify-content: space-between;
-    width: 160px;
+    min-width: 196px;
     z-index: 2;
+  }
+
+  & [data-tlbr] {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
   }
 
   @media screen and (max-width: 768px) {

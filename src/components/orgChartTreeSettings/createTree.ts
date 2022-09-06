@@ -48,25 +48,52 @@ const createTree = ({nodes, ref}: CreateTreeProps) => {
     }
   });
 
-  orgChart?.on('searchclick', function (sender, nodeId) {
-    const nodeData = sender.getNode(nodeId);
-    const level = nodeData?.level || '';
+  orgChart.on('searchclick', function (sender, nodeId) {
 
-    if (level > 1 && level < 3) {
-      sender.center(nodeId, {
-        parentState: OrgChart?.COLLAPSE_PARENT_NEIGHBORS,
-        childrenState: OrgChart?.COLLAPSE_SUB_CHILDRENS,
-        rippleId: nodeId,
-        vertical: true,
-        horizontal: true
-      });
-    }
+    sender.center(nodeId, {
+      parentState: OrgChart.COLLAPSE_PARENT_NEIGHBORS,
+      childrenState: OrgChart.COLLAPSE_SUB_CHILDRENS,
+      rippleId: nodeId,
+      vertical: true,
+      horizontal: true
+    });
+    return false;
   });
 
-  orgChart?.on('expcollclick', function (sender, collapse, id) {
+  orgChart.on('expcollclick', function (sender, isCollpasing, id) {
     const nodeData = sender.getNode(id);
-    const level = nodeData.level || '';
-    if (!collapse && level > 1 && level < 3) {
+    const level = nodeData?.level || '';
+
+    // closing children sibling node
+    if (!isCollpasing && level === 1) {
+      const collapseIds = [];
+
+      let ln = nodeData?.leftNeighbor;
+      while (ln && ln.childrenIds) {
+        for (let i = 0; i < ln.childrenIds?.length; i++) {
+          collapseIds.push(ln.childrenIds[i])
+        }
+        ln = ln.leftNeighbor;
+      }
+
+      let rn = nodeData.rightNeighbor;
+      while (rn && rn.childrenIds) {
+        for (let i = 0; i < rn.childrenIds?.length; i++) {
+          collapseIds.push(rn.childrenIds[i])
+        }
+        rn = rn.rightNeighbor;
+      }
+      sender.collapse(id, collapseIds)
+
+      sender.collapse(id, collapseIds, function () {
+        nodeData?.childrenIds && sender.expand(id, nodeData?.childrenIds)
+      })
+
+      sender.center(id);
+      return false;
+    }
+
+    if (!isCollpasing && level === 2) {
       sender.center(id, {
         parentState: OrgChart.COLLAPSE_PARENT_NEIGHBORS,
         childrenState: OrgChart.COLLAPSE_SUB_CHILDRENS,
@@ -74,6 +101,7 @@ const createTree = ({nodes, ref}: CreateTreeProps) => {
         vertical: false,
         horizontal: true
       });
+      return false;
     }
   });
 
@@ -130,7 +158,6 @@ const createTree = ({nodes, ref}: CreateTreeProps) => {
       });
     }
   });
-
 
   return orgChart;
 };

@@ -8,8 +8,8 @@ export const Style_NavigationBar = styled.div`
   font-weight: 600;
   z-index: 1;
   top: 70px;
-  width: calc(100%);
-  background-color: #fff;
+  width: 100%;
+  background-color: #F5F5F5;
   height: 60px;
   
   @media (min-width: 2080px) {

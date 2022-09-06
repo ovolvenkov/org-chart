@@ -13,16 +13,6 @@ const MainTree:FC<TreeProps> = (props) => {
     chartTreeInstance?.on('init', () => {
       setChartTreeInstance(chartTreeInstance);
     });
-
-    chartTreeInstance?.onExpandCollpaseButtonClick((nodeData) => {
-      const currenNodeData = chartTreeInstance.getNode(nodeData.id);
-
-      if (!nodeData.collapsing && currenNodeData.level === 2) {
-        const currenSourceData = chartTreeInstance.get(nodeData.id);
-        const parentSourceData = chartTreeInstance.get(currenNodeData?.parent?.id || '');
-        setNodeData({ currenNodeData, currenSourceData, parentSourceData });
-      }
-    });
   }, []);
 
   return <>

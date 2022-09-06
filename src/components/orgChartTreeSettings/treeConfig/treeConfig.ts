@@ -7,7 +7,6 @@ const TreeConfig = (nodes: CompanyMember[] | undefined) => ({
   nodes,
   showXScroll: true,
   showYScroll: true,
-  mouseScrool: OrgChart.action.scroll,
   layout: OrgChart.tree,
   enableKeyNavigation: true,
   lazyLoading: true,
@@ -19,16 +18,16 @@ const TreeConfig = (nodes: CompanyMember[] | undefined) => ({
     allChildren: true,
   },
   nodeBinding: {
+    field_name: 'name',
     field_collectiveLevelName: 'collectiveLevelName',
     field_structureLevelName: 'structureLevelName',
-    field_name: 'name',
     field_job_title: 'jobPosition',
     img_avatar: 'image',
   },
   toolbar: {
     zoom: true,
     expandAll: true,
-    fit: true,
+    fit: true
   },
   searchFields: ["name", "jobPosition", "email", "phoneNumber", "structureName"],
   searchFieldsWeight: {
