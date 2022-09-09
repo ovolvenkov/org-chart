@@ -5,14 +5,14 @@ import Footer from './components/Footer/Footer';
 import MainTree from './components/MainTree/MainTree';
 import {Route, Routes, useNavigate} from 'react-router-dom';
 import ErrorPage from "./components/ErrorPage/ErrorPage";
-import {ExtendedOrgChart, NodeData} from './types/types';
+import {ExtendedOrgChart} from './types/types';
 import {useAppDispatch, useAppSelector} from "./hooks/redux";
 import {fetchUsers} from "./store/reducers/actionCreators";
 import Loader from "./components/Loader/Loader";
 
 function App() {
-  const [nodeData, setNodeData] = useState<NodeData | null>(null);
   const [chartTreeInstance, setChartTreeInstance] = useState<ExtendedOrgChart | null>(null);
+  const [isActiveBackBtn, setIsActiveBackBtn] = useState(false);
   const {users, isLoading, error} = useAppSelector(state=>state.userReducer);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -32,9 +32,9 @@ function App() {
         <Routes>
           <Route path="/" element={!isLoading ? <MainTree nodes={users.data}
                                                           setChartTreeInstance={setChartTreeInstance}
-                                                          setNodeData={setNodeData}
-                                                          nodeData={nodeData}
-                                                          chartTreeInstance={chartTreeInstance}/> : <Loader/>} />
+                                                          chartTreeInstance={chartTreeInstance}
+                                                          setIsActiveBackBtn={setIsActiveBackBtn}
+                                                          isActiveBackBtn={isActiveBackBtn}/> : <Loader/>} />
           <Route path="/error" element={<ErrorPage />} />
         </Routes>
         <Footer />

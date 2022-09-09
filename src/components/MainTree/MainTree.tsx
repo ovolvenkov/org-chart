@@ -5,11 +5,11 @@ import NavigationTopBar from "../NavigationBar/NavigationBar";
 import {TreeProps} from "../../types/types";
 
 const MainTree:FC<TreeProps> = (props) => {
-  const { nodes, setChartTreeInstance, nodeData, setNodeData, chartTreeInstance } = props;
+  const { nodes, setChartTreeInstance, chartTreeInstance, setIsActiveBackBtn, isActiveBackBtn } = props;
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const chartTreeInstance = createTree({nodes, ref});
+    const chartTreeInstance = createTree({nodes, ref, setIsActiveBackBtn});
     chartTreeInstance?.on('init', () => {
       setChartTreeInstance(chartTreeInstance);
     });
@@ -17,8 +17,8 @@ const MainTree:FC<TreeProps> = (props) => {
 
   return <>
     <NavigationTopBar chartTreeInstance={chartTreeInstance}
-                      setNodeData={setNodeData}
-                      nodeData={nodeData} />
+                      setIsActiveBackBtn={setIsActiveBackBtn}
+                      isActiveBackBtn={isActiveBackBtn} />
     <Style_MainTree id="tree"
                     className="container-tree"
                     ref={ref} />

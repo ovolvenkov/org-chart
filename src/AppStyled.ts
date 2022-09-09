@@ -4,7 +4,7 @@ export const Style_App = styled.div`
   position: relative;
   font-size: var(--global-fontSize-13);
   
-  #tree > svg:first-child {
+  #tree > svg {
     background-color: #F5F5F5;
   }
 
@@ -33,7 +33,7 @@ export const Style_App = styled.div`
   }
 
   & .boc-search .boc-input > label {
-    top: 8px;
+    top: 6px;
     font-size: 18px;
     font-weight: 600;
   }
@@ -68,6 +68,21 @@ export const Style_App = styled.div`
     align-items: center;
     background-color: #fff;
   }
+
+  && [data-tlbr] svg path {
+    stroke: none !important;
+    transition: all 0.3s;
+  }
+
+  & [data-tlbr]:hover {
+    cursor: pointer;
+  }
+
+  & [data-tlbr]:hover svg path {
+    fill: #ff6f43;
+    transition: all 0.3s;
+  }
+
 
   @media screen and (max-width: 768px) {
     && .boc-search {

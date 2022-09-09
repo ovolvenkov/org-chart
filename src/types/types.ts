@@ -39,35 +39,23 @@ export interface UserState {
   error: string;
 }
 
-export type NodeData = {
-  currenNodeData?: OrgChart.node,
-  currenSourceData?: CompanyMember,
-  parentSourceData?: CompanyMember
-}
-
 export type TreeProps = {
   nodes?: CompanyMember[] | undefined,
   setChartTreeInstance: (arg: ExtendedOrgChart | null)=>void,
-  nodeData: NodeData | null,
-  setNodeData: (arg: NodeData | null)=>void,
   chartTreeInstance: ExtendedOrgChart | null,
-  isLoading?: boolean
-}
-
-export type BreadcrumbsProps = {
-  setNodeData: (arg: object | null) => void,
-  nodeData: NodeData | null,
+  isLoading?: boolean,
+  setIsActiveBackBtn: (arg: boolean)=>void,
+  isActiveBackBtn: boolean
 }
 
 export type NavigationBarProps = {
   chartTreeInstance: ExtendedOrgChart | null,
-  setNodeData: (arg: object | null) => void,
-  nodeData: NodeData | null,
-  isTouchedTree?: boolean,
-  setIsTouchedTree?: (arg: boolean | null) => void
+  setIsActiveBackBtn: (arg: boolean)=>void,
+  isActiveBackBtn: boolean
 }
 
 export type CreateTreeProps = {
   nodes: CompanyMember[] | undefined,
   ref: RefObject<HTMLDivElement>,
+  setIsActiveBackBtn: (arg: boolean)=>void,
 }

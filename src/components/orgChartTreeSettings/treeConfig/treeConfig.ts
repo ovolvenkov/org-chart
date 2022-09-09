@@ -9,6 +9,7 @@ const TreeConfig = (nodes: CompanyMember[] | undefined) => ({
   showYScroll: true,
   layout: OrgChart.tree,
   enableKeyNavigation: true,
+  mouseScrool: OrgChart.action.scroll,
   lazyLoading: true,
   padding: 80,
   scaleMin: 0.1,
@@ -29,13 +30,12 @@ const TreeConfig = (nodes: CompanyMember[] | undefined) => ({
     expandAll: true,
     fit: true
   },
-  searchFields: ["name", "jobPosition", "email", "phoneNumber", "structureName"],
+  searchFields: ["name", "jobPosition", "structureName", "aimchatAccount"],
   searchFieldsWeight: {
-    "name": 50, //percent
-    "jobPosition": 10,
-    "structureName": 10, //percent
-    "email": 20,
-    "phoneNumber": 10,
+    "name": 20, //percent
+    "jobPosition": 20,
+    "structureName": 20,
+    "aimchatAccount": 20
   },
   editForm: {
     readOnly: true,

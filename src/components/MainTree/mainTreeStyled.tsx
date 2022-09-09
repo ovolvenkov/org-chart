@@ -21,6 +21,23 @@ export const Style_MainTree = styled.div`
     text-anchor: middle;
   }
 
+  & .structure-name {
+    font-size: 12px;
+    font-weight: bold;
+    fill: #fff;
+  }
+  
+  & .name-field {
+    font-size: 16px; 
+    font-weight: bold; 
+    fill: #000;
+  }
+  
+  & .job-title {
+    font-size: 12px;
+    fill:#606060;
+  }
+
   //styles for focused node
   & rect:focus{
     stroke: #ff6f43;
