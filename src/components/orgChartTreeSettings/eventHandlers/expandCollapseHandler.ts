@@ -30,6 +30,8 @@ const expandCollapsHandler = (orgChart: OrgChart, setIsActiveBackBtn: (arg: bool
       sender.collapse(id, collapseIds, function () {
         nodeData?.childrenIds && sender.expand(id, nodeData?.childrenIds)
       })
+
+      sender.center(id);
       return false;
     }
 
