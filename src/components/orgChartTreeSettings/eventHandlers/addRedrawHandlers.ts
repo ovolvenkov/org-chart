@@ -1,6 +1,6 @@
 import OrgChart from '@balkangraph/orgchart.js';
 
-const addRedrawHandler = (orgChart: OrgChart) => {
+const addRedrawHandlers = (orgChart: OrgChart) => {
   //add tooltips for expandCollapse buttons
   orgChart.on('redraw', function (sender) {
     const nodeElements = document.querySelectorAll('[data-ctrl-ec-id]');
@@ -27,4 +27,4 @@ const addRedrawHandler = (orgChart: OrgChart) => {
   });
 };
 
-export default addRedrawHandler;
+export default addRedrawHandlers;

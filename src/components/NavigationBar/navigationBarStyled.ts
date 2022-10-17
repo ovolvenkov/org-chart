@@ -7,15 +7,10 @@ export const Style_NavigationBar = styled.div`
   font-size: 18px;
   font-weight: 600;
   z-index: 1;
-  top: 70px;
+  top: 62px;
   width: 100%;
-  background-color: #F5F5F5;
-  height: 60px;
-  
-  @media (min-width: 2080px) {
-    max-width: 1580px;
-    left: 80px;
-  }
+  background-color: ${props => props.theme.colors.mainColor};
+  height: 65px;
 
   .background-navigation-menu {
     width: 100vw;
@@ -23,9 +18,9 @@ export const Style_NavigationBar = styled.div`
     z-index: 100;
   }
 
-
-  & .navigation-btns-wrapper {
+  & .navigation-btn-wrapper {
     display: flex;
+    align-items: center;
     font-size: 18px;
     font-weight: 600;
     margin: 0;
@@ -40,6 +35,20 @@ export const Style_NavigationBar = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: all 0.3s;
+  }
+
+  & .back-start-btn:hover{
+    background-color: #ff6f43;
+  }
+
+  & .back-start-btn > svg > path {
+    fill: ${props => props.theme.colors.fontColor};
+  }
+
+  & .back-start-btn:hover > svg > path {
+    fill: #fff;
+    transition: all 0.3s;
   }
 
   & button {

@@ -4,13 +4,10 @@ export const Style_ErrorPage = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: calc(100vh - 162px);
+  height: calc(100vh - 123px);
   
   & .info-block, & .img-block {
     width: 50%;
-  }
-
-  & .info-block {
   }
   
   & .main-text {

@@ -1,19 +1,20 @@
 import styled from 'styled-components';
 
 export const Style_Footer = styled.footer`
-  border-top: 1px solid #d0d0d0;
+  border-top: 1px solid ${props => props.theme.colors.blackSecondColor || '#d0d0d0'};
   align-items: center;
+  background-color: ${props => props.theme.colors.blackSecondColor};
 
   & .footer-content-wrapper {
     display: flex;
     justify-content: space-between;
-    padding-top: 14px;
-    padding-bottom: 14px;
+    padding-top: 12px;
+    padding-bottom: 12px;
   }
 
   & .rights-text {
     font-size: 14px;
-    color: #4a4a4a;
+    color: ${props => props.theme.colors.silverColor || '#4a4a4a'};
     line-height: 22px;
     display: flex;
     justify-content: center;
@@ -29,8 +30,8 @@ export const Style_Footer = styled.footer`
 
   & li {
     list-style-type: none;
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     background-color: #e9e9e9;
     border-radius: 50%;
     display: flex;
@@ -50,12 +51,14 @@ export const Style_Footer = styled.footer`
     align-items: center;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 678px) {
     & .footer-content-wrapper {
       flex-direction: column;
       justify-content: flex-start;
     }
-
+  }
+  
+  @media (max-width: 768px) {
     & .rights-text {
       padding-bottom: 15px;
     }

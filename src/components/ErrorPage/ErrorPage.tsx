@@ -10,8 +10,8 @@ const ErrorPage:FC = () => {
   const navigate = useNavigate();
   const onClickHandler = () => {
     navigate('/');
-    dispatch(fetchUsers())
-  }
+    dispatch(fetchUsers());
+  };
 
   return (
     <Style_ErrorPage className="container">

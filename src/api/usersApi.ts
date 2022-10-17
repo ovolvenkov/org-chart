@@ -1,7 +1,6 @@
 import {CompanyMember} from "../types/types";
 import axios from "axios";
 
-
 export const axiosInstance = axios.create({
     baseURL: "https://aim-dms.aimprosoft.com"
 });

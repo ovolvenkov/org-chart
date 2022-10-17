@@ -1,6 +1,6 @@
 import OrgChart from '@balkangraph/orgchart.js';
 
-const addKeysHandler = (orgChart: OrgChart) => {
+const addKeysHandlers = (orgChart: OrgChart) => {
   orgChart?.on('key-down', function (sender: OrgChart, args) {
     if (args.node) {
       if (args.event.code == "Enter" || args.event.code == "NumpadEnter") {
@@ -17,4 +17,4 @@ const addKeysHandler = (orgChart: OrgChart) => {
   });
 };
 
-export default addKeysHandler;
+export default addKeysHandlers;

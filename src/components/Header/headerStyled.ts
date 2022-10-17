@@ -1,15 +1,16 @@
 import styled from 'styled-components';
 
 export const Style_Header = styled.header`
-  border-bottom: 1px solid #d0d0d0;
+  border-bottom: 1px solid ${props => props.theme.colors.blackSecondColor || '#d0d0d0'};
+  background-color: ${props => props.theme.colors.blackSecondColor};
 `;
 
-export const Style_ContentWrapper = styled.div`{
+export const Style_ContentWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 17px;
-  padding-bottom: 17px;
+  padding-top: 13px;
+  padding-bottom: 13px;
   margin: 0 auto;
   max-height: 35px;
   
@@ -34,16 +35,21 @@ export const Style_ContentWrapper = styled.div`{
   
   & .about-us-link {
     margin-left: auto;
-    margin-right: 50px;
+    margin-right: 45px;
     text-decoration: none;
-    color: #000;
-    font-size: 18px;
+    color: ${props => props.theme.colors.fontColor};
+    font-size: 16px;
     font-weight: bold;
     padding-left: 5px;
+    transition: color 0.3s;
+  }
+  
+  & .about-us-link:hover {
+    color: #ff6f43 !important;
   }
   
   & .language-btn {
     color: #949494;
     font-size: 18px;
     font-weight: bold;
-}`;
+`;

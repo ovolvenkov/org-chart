@@ -1,7 +1,7 @@
 import OrgChart from '@balkangraph/orgchart.js';
-import { CompanyMember } from '../../../types/types';
+import {CompanyMember} from '../../../types/types';
 
-const editUiHandlers = (orgChart: OrgChart) => {
+const addEditUiHandlers = (orgChart: OrgChart) => {
   //for disable opens node
   orgChart?.editUI.on('show', function (sender, nodeId) {
     const node = orgChart.getNode(nodeId);
@@ -18,7 +18,7 @@ const editUiHandlers = (orgChart: OrgChart) => {
     }
     else if (args.name === 'chat') {
       const data:CompanyMember = orgChart.get(args.nodeId);
-      data.aimchatAccount && window.open(`https://chat.aimprosoft.com/index.html#/chat/${data.aimchatAccount}`)
+      data.aimchatAccount && window.open(`https://chat.aimprosoft.com/index.html#/chat/direct?userName=${data.aimchatAccount}`)
     }
     else if (args.name === 'skype') {
       const data:CompanyMember = orgChart.get(args.nodeId);
@@ -31,4 +31,4 @@ const editUiHandlers = (orgChart: OrgChart) => {
   });
 };
 
-export default editUiHandlers;
+export default addEditUiHandlers;

@@ -5,6 +5,7 @@ import {chatIcons, emailIcon, phoneIcon, skypeIcon} from "../../../utils/icons";
 const TreeConfig = (nodes: CompanyMember[] | undefined) => ({
   template: 'customTemplate',
   nodes,
+  miniMap: true,
   showXScroll: true,
   showYScroll: true,
   layout: OrgChart.tree,
@@ -13,7 +14,7 @@ const TreeConfig = (nodes: CompanyMember[] | undefined) => ({
   lazyLoading: true,
   padding: 80,
   scaleMin: 0.1,
-  scaleInitial: 1,
+  scaleInitial: .95,
   collapse: {
     level: 2,
     allChildren: true,
@@ -24,6 +25,7 @@ const TreeConfig = (nodes: CompanyMember[] | undefined) => ({
     field_structureLevelName: 'structureLevelName',
     field_job_title: 'jobPosition',
     img_avatar: 'image',
+    field_status: 'userStatus'
   },
   toolbar: {
     zoom: true,
@@ -32,10 +34,10 @@ const TreeConfig = (nodes: CompanyMember[] | undefined) => ({
   },
   searchFields: ["name", "jobPosition", "structureName", "aimchatAccount"],
   searchFieldsWeight: {
-    "name": 20, //percent
-    "jobPosition": 20,
-    "structureName": 20,
-    "aimchatAccount": 20
+    "name": 70, //percent
+    "aimchatAccount": 10,
+    "jobPosition": 10,
+    "structureName": 10
   },
   editForm: {
     readOnly: true,
@@ -43,14 +45,16 @@ const TreeConfig = (nodes: CompanyMember[] | undefined) => ({
     elements: [
       { type: 'textbox', label: 'Name', binding: 'name'},
       { type: 'textbox', label: 'Position', binding: 'jobPosition'},
+      { type: 'textbox', label: 'Status', binding: 'userStatus'},
       { type: 'textbox', label: 'Team Lead', binding: 'teamLead'},
-      { type: 'textbox', label: 'Hierarchy', binding: 'structureName'},
       { type: 'textbox', label: 'Phone Number', binding: 'phoneNumber'},
       { type: 'textbox', label: 'Email', binding: 'email'},
       { type: 'textbox', label: 'Aimchat', binding: 'aimchatAccount'},
       { type: 'textbox', label: 'Skype', binding: 'skypeAccount'},
       { type: 'textbox', label: 'Department', binding: 'structureLevelName'},
-      { type: 'textbox', label: 'Image', binding: 'image'}
+      { type: 'customDiv', label: 'Hierarchy', binding: 'structureName'},
+      { type: 'textbox', label: 'Image', binding: 'image'},
+      { type: 'statusIcon', label: 'Status', binding: 'userStatus'}
     ],
     buttons: {
       email: {
@@ -76,13 +80,10 @@ const TreeConfig = (nodes: CompanyMember[] | undefined) => ({
     }
   },
   tags: {
-    "subLevels0": {
-      subLevels: 0
+    "y": {
+      template: "yTemplate"
     },
-    "subLevels1": {
-      subLevels: 1
-    }
-  }
+  },
 });
 
 export default TreeConfig;

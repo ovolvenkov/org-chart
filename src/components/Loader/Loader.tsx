@@ -1,9 +1,9 @@
 import {Style_Loader} from "./loaderStyled";
-import aimLoader from '../../assets/images/aim-loader.gif';
+import loader from '../../assets/images/aim-loader.gif';
 
 const Loader = () => {
   return <Style_Loader>
-    <img src={aimLoader} alt='loader'/>
+    <img src={loader} alt='loader'/>
   </Style_Loader>
 }
 
