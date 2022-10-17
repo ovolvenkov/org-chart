@@ -10,7 +10,7 @@ import {useAppDispatch, useAppSelector} from "./hooks/redux";
 import {fetchUsers} from "./store/reducers/actionCreators";
 import Loader from "./components/Loader/Loader";
 import Theme from "./components/Theme/Theme";
-import ReactGA from 'react-ga';
+import GA4React from "ga-4-react";
 
 function App() {
   const [chartTreeInstance, setChartTreeInstance] = useState<ExtendedOrgChart | null>(null);
@@ -23,7 +23,8 @@ function App() {
   useEffect(()=>{
     dispatch(fetchUsers());
     const TRACKING_ID = "G-3SL47YB4CQ"; // OUR_TRACKING_ID
-    ReactGA.initialize(TRACKING_ID);
+    const ga4react = new GA4React(TRACKING_ID);
+    ga4react.initialize().then().catch()
   },[]);
 
   useEffect(()=>{
