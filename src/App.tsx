@@ -11,8 +11,6 @@ import {fetchUsers} from "./store/reducers/actionCreators";
 import Loader from "./components/Loader/Loader";
 import Theme from "./components/Theme/Theme";
 import ReactGA from 'react-ga';
-const TRACKING_ID = "G-3SL47YB4CQ"; // OUR_TRACKING_ID
-ReactGA.initialize(TRACKING_ID);
 
 function App() {
   const [chartTreeInstance, setChartTreeInstance] = useState<ExtendedOrgChart | null>(null);
@@ -24,6 +22,8 @@ function App() {
 
   useEffect(()=>{
     dispatch(fetchUsers());
+    const TRACKING_ID = "G-3SL47YB4CQ"; // OUR_TRACKING_ID
+    ReactGA.initialize(TRACKING_ID);
   },[]);
 
   useEffect(()=>{
